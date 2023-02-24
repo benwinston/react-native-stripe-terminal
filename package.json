@@ -43,8 +43,8 @@
   "main": "index.js",
   "name": "react-native-stripe-terminal",
   "peerDependencies": {
-    "react": "^17.0.0",
-    "react-native": "^0.64.0"
+    "react": "^18.2.0",
+    "react-native": "^0.71.3"
   },
   "repository": {
     "type": "git",
@@ -55,7 +55,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "title": "React Native Stripe Terminal",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "dependencies": {
     "eventemitter3": "^4.0.7"
   }
