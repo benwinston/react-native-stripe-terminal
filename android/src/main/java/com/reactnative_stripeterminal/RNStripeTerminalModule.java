@@ -639,7 +639,7 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                 WritableMap errorMap = Arguments.createMap();
                 errorMap.putString(ERROR, e.getErrorMessage());
                 // errorMap.putInt(CODE, e.getErrorCode().ordinal());
-                errorMap.putString(CODE, e.getErrorCode());
+                errorMap.putString(CODE, e.getErrorCode().name());
                 errorMap.putMap(INTENT, serializePaymentIntent(lastPaymentIntent, lastCurrency));
                 sendEventWithName(EVENT_PAYMENT_METHOD_COLLECTION, errorMap);
             }
