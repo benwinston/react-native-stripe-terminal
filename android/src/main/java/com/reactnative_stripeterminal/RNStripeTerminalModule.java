@@ -793,11 +793,11 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                 public void onFailure(@Nonnull TerminalException e) {
                     WritableMap errorMap = Arguments.createMap();
                     errorMap.putString(ERROR, e.getErrorMessage());
-                    sendEventWithName(EVENT_ABORT_CREATE_PAYMENT_COMPLETION, errorMap);
+                    sendEventWithName(EVENT_ABORT_CREATE_PAYMENT_FAILED, errorMap);
                 }
             });
         } else {
-            sendEventWithName(EVENT_ABORT_CREATE_PAYMENT_COMPLETION, Arguments.createMap());
+            sendEventWithName(EVENT_ABORT_CREATE_PAYMENT_NOTHING_TO_DO, Arguments.createMap());
         }
     }
 

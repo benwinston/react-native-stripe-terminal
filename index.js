@@ -89,7 +89,10 @@ class StripeTerminal {
       "didFinishInstallingUpdate",
       "readerReconnectStarted",
       "readerReconnectSucceeded",
-      "readerReconnectFailed"
+      "readerReconnectFailed",
+      "abortCreatePaymentCompletion",
+      "abortCreatePaymentFailed",
+      "abortCreatePaymentNothingToDo"
     ]);
   }
 
