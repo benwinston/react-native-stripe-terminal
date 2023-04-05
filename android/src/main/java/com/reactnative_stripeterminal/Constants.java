@@ -61,6 +61,7 @@ public class Constants {
     public static final String ERROR ="error";
     public static final String API_ERROR = "apiError";
     public static final String CODE="code";
+    public static final String CODE_NAME="codeName";
     public static final String BATTERY_LEVEL = "batteryLevel";
     public static final String DEVICE_TYPE = "deviceType";
     public static final String SERIAL_NUMBER = "serialNumber";

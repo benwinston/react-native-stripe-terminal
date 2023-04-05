@@ -360,6 +360,7 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                                         WritableMap errorMap = Arguments.createMap();
                                         errorMap.putString(ERROR, e.getErrorMessage());
                                         errorMap.putInt(CODE, e.getErrorCode().ordinal());
+                                        errorMap.putString(CODE_NAME, e.getErrorCode().name());
                                         String currency = "";
                                         if (options != null && options.hasKey(CURRENCY)) {
                                             currency = options.getString(CURRENCY);
@@ -376,6 +377,7 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                                 WritableMap collectionErrorMap = Arguments.createMap();
                                 collectionErrorMap.putString(ERROR, e.getErrorMessage());
                                 collectionErrorMap.putInt(CODE, e.getErrorCode().ordinal());
+                                collectionErrorMap.putString(CODE_NAME, e.getErrorCode().name());
                                 String currency = "";
                                 if (options != null && options.hasKey(CURRENCY)) {
                                     currency = options.getString(CURRENCY);
@@ -391,6 +393,7 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                 WritableMap paymentCreationMap = Arguments.createMap();
                 paymentCreationMap.putString(ERROR, e.getErrorMessage());
                 paymentCreationMap.putInt(CODE, e.getErrorCode().ordinal());
+                paymentCreationMap.putString(CODE_NAME, e.getErrorCode().name());
                 sendEventWithName(EVENT_PAYMENT_CREATION, paymentCreationMap);
             }
         };
@@ -540,6 +543,7 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                 WritableMap errorMap = Arguments.createMap();
                 errorMap.putString(ERROR, e.getErrorMessage());
                 errorMap.putInt(CODE, e.getErrorCode().ordinal());
+                errorMap.putString(CODE_NAME, e.getErrorCode().name());
                 errorMap.putMap(INTENT, serializePaymentIntent(lastPaymentIntent, lastCurrency));
                 sendEventWithName(EVENT_PAYMENT_INTENT_CANCEL, errorMap);
             }
@@ -563,6 +567,7 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                 errorMap.putString(ERROR, e.getErrorMessage());
                 errorMap.putString(API_ERROR, e.getApiError().getMessage());
                 errorMap.putInt(CODE, e.getErrorCode().ordinal());
+                errorMap.putString(CODE_NAME, e.getErrorCode().name());
                 errorMap.putString(DECLINE_CODE, e.getApiError().getDeclineCode());
                 errorMap.putMap(INTENT, serializePaymentIntent(lastPaymentIntent, lastCurrency));
                 sendEventWithName(EVENT_PROCESS_PAYMENT, errorMap);
@@ -614,6 +619,7 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                 errorMap.putString(ERROR, e.getErrorMessage());
                 errorMap.putString(API_ERROR, e.getApiError().getMessage());
                 errorMap.putInt(CODE, e.getErrorCode().ordinal());
+                errorMap.putString(CODE_NAME, e.getErrorCode().name());
                 errorMap.putString(DECLINE_CODE, e.getApiError().getDeclineCode());
                 errorMap.putMap(INTENT, serializeSetupIntent(lastSetupIntent));
                 sendEventWithName(EVENT_CONFIRM_SETUP_INTENT, errorMap);
@@ -638,8 +644,8 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                 pendingCreatePaymentIntent = null;
                 WritableMap errorMap = Arguments.createMap();
                 errorMap.putString(ERROR, e.getErrorMessage());
-                // errorMap.putInt(CODE, e.getErrorCode().ordinal());
-                errorMap.putString(CODE, e.getErrorCode().name());
+                errorMap.putInt(CODE, e.getErrorCode().ordinal());
+                errorMap.putString(CODE_NAME, e.getErrorCode().name());
                 errorMap.putMap(INTENT, serializePaymentIntent(lastPaymentIntent, lastCurrency));
                 sendEventWithName(EVENT_PAYMENT_METHOD_COLLECTION, errorMap);
             }
@@ -664,6 +670,7 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                 WritableMap errorMap = Arguments.createMap();
                 errorMap.putString(ERROR, e.getErrorMessage());
                 errorMap.putInt(CODE, e.getErrorCode().ordinal());
+                errorMap.putString(CODE_NAME, e.getErrorCode().name());
                 errorMap.putMap(INTENT, serializeSetupIntent(lastSetupIntent));
                 sendEventWithName(EVENT_SETUP_INTENT_PAYMENT_METHOD_COLLECTION, errorMap);
             }
