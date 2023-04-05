@@ -638,7 +638,8 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
                 pendingCreatePaymentIntent = null;
                 WritableMap errorMap = Arguments.createMap();
                 errorMap.putString(ERROR, e.getErrorMessage());
-                errorMap.putInt(CODE, e.getErrorCode().ordinal());
+                // errorMap.putInt(CODE, e.getErrorCode().ordinal());
+                errorMap.putInt(CODE, e.getErrorCode());
                 errorMap.putMap(INTENT, serializePaymentIntent(lastPaymentIntent, lastCurrency));
                 sendEventWithName(EVENT_PAYMENT_METHOD_COLLECTION, errorMap);
             }
