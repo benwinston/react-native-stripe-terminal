@@ -275,17 +275,6 @@ public class RNStripeTerminalModule extends ReactContextBaseJavaModule implement
 
     @ReactMethod
     public void initializeTerminal(com.facebook.react.bridge.Callback callback) {
-        // try {
-        //     //Check if stripe is initialized
-        //     Terminal.getInstance();
-
-        //     WritableMap writableMap = Arguments.createMap();
-        //     writableMap.putBoolean("isInitialized", true);
-        //     callback.invoke(writableMap);
-        //     return;
-        // } catch (IllegalStateException e) {
-        // }
-
         if (Terminal.isInitialized()) { //Check if stripe is initialized
             WritableMap writableMap = Arguments.createMap();
             writableMap.putBoolean("isInitialized", true);
